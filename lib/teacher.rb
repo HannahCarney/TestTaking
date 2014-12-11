@@ -1,14 +1,21 @@
 class Teacher
 
-  def initialize
-    @graded = false
-  end
+def initialize
+  @graded = false
+  @papers = []
+end
 
-  def grade!
+  def grade paper	
+	@papers << paper
 	@graded = true
   end
 
-  def finished_grading?
+  def graded?
 	@graded == true
   end
+
+  def paper_count
+		@papers.count
+  end
+
 end
