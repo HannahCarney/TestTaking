@@ -5,16 +5,16 @@ def initialize
 	@completed = false
 end 
 
-	def empty?
-		@empty
+	def empty? #yes it is empty
+		@empty == true
 	end
 
 	def complete!
 		@completed = true
 	end
 
-	def completed? # here completed returns false it is not completed when initialized
-		@completed
+	def completed? #yes it is completed
+		@completed == true
 	end
 
 end
