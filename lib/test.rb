@@ -3,6 +3,7 @@ class Test
 def initialize
 	@empty = true
 	@completed = false
+	@graded = false
 end 
 
 	def empty? #yes it is empty
@@ -16,6 +17,14 @@ end
 
 	def completed? #yes it is completed
 		@completed == true
+	end
+
+	def grade!
+		@graded = true
+	end
+
+	def graded?
+		@graded == true
 	end
 
 end
