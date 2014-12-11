@@ -4,16 +4,17 @@ def initialize
 	@empty = true
 	@completed = false
 end 
-  
-	def workingTest?
-		working = true
-	end
 
-	def emptyTest?
+	def empty?
 		@empty
 	end
 
-	def completedTest?
+	def complete!
 		@completed = true
 	end
+
+	def completed? # here completed returns false it is not completed when initialized
+		@completed
+	end
+
 end
