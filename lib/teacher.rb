@@ -2,11 +2,12 @@ class Teacher
 
 def initialize
   @graded = false
-  @papers = []
+  @tests = []
+  @finished = false
 end
 
-  def grade paper	
-	@papers << paper
+  def grade test	
+	@tests << test
 	@graded = true
   end
 
@@ -14,8 +15,16 @@ end
 	@graded == true
   end
 
-  def paper_count
-		@papers.count
+  def graded_count
+	@tests.count
   end
+
+  def done!
+     @finished = true
+   end  
+
+  def all_graded?
+  	@finished == true
+  end 
 
 end

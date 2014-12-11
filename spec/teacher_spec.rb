@@ -2,21 +2,24 @@ require 'teacher'
 
 describe Teacher do
 
-  let(:paper) { Teacher.new }
+  let(:test) { Teacher.new }
 
 	it "should be able to write tests" do
-	  expect(paper).not_to be_graded
+	  expect(test).not_to be_graded
 	end
 
-   	it "should be able to grade papers" do
-	  expect(paper.paper_count).to eq(0)
-	  paper.grade paper
-	  expect(paper).to be_graded
-      expect(paper.paper_count).to eq(1)    
+   	it "should be able to grade tests" do
+	  expect(test.graded_count).to eq(0)
+	  test.grade test
+	  expect(test).to be_graded
+      expect(test.graded_count).to eq(1)    
   end
 
+     it "should know when it's finished grading papers" do
+     	expect(test).not_to be_all_graded
+     	test.done!
+     	expect(test).to be_all_graded
+     end 
 
 end
-
-
 
