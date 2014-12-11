@@ -11,6 +11,7 @@ end
 
 	def complete!
 		@completed = true
+		@empty = false
 	end
 
 	def completed? #yes it is completed
