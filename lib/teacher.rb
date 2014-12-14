@@ -8,17 +8,19 @@ def initialize(options = {})
   @finished = false
 end
 
-  def grade test  
-  @tests << test
-  @graded = true
+  def grade test
+    #if capacity is reached, raise an exception
+    raise "No more tests to grade" if all_graded?  
+    @tests << test
+    @graded = true
   end
 
   def graded?
-  @graded == true
+    @graded == true
   end
 
   def graded_count
-  @tests.count
+    @tests.count
   end
 
   def done!
