@@ -2,7 +2,7 @@ require 'test'
 
 describe Test do
 
-  let(:test) {Test.new}
+  let(:test) { Test.new }
 
   it "should not be completed when started" do
   	 expect(test).to be_empty
@@ -24,4 +24,5 @@ describe Test do
   	 expect(test).not_to be_empty
   	 expect(test).to be_graded
   end
+
 end

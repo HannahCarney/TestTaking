@@ -1,22 +1,24 @@
 class Teacher
+  DEFAULT_CAPACITY = 20 #students/#papers
 
-def initialize
+def initialize(options = {})
+  @capacity = options.fetch(:capacity, DEFAULT_CAPACITY)
   @graded = false
   @tests = []
   @finished = false
 end
 
-  def grade test	
-	@tests << test
-	@graded = true
+  def grade test  
+  @tests << test
+  @graded = true
   end
 
   def graded?
-	@graded == true
+  @graded == true
   end
 
   def graded_count
-	@tests.count
+  @tests.count
   end
 
   def done!
@@ -24,7 +26,7 @@ end
    end  
 
   def all_graded?
-  	@finished == true
+    graded_count == @capacity
   end 
 
 end
