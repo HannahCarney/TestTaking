@@ -28,4 +28,13 @@ describe Teacher do
         tests_graded
         expect{ test.grade(test)}.to raise_error(RuntimeError, 'No more tests to grade')
      end
+
+     it "should only grade ungraded papers" do
+       ungraded_test, graded_test = Teacher.new, Teacher.new
+       graded_test.grade!
+       test.grade(ungraded_test)
+       test.grade(graded_test)
+       expect(test.tests_that_are_graded).to eq([graded_test])
+     end 
+
 end

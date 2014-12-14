@@ -15,17 +15,29 @@ end
     @graded = true
   end
 
+  def tests_that_are_graded
+    @tests.reject {|test| test.not_graded? }
+  end 
+
   def graded?
     @graded == true
   end
+
+  def not_graded?
+    @graded == false
+  end 
 
   def graded_count
     @tests.count
   end
 
   def done!
-     @finished = true
-   end  
+    @finished = true
+  end  
+
+  def grade!
+    @graded = true
+  end
 
   def all_graded?
     graded_count == @capacity
