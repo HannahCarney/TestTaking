@@ -1,9 +1,12 @@
 require 'teacher'
 
 describe Teacher do
-
+    
   let(:test) { Teacher.new(capacity: 20) }
 
+    def tests_graded
+      20.times { test.grade(Teacher.new)}
+    end 
     it "should be able to write tests" do
       expect(test).not_to be_graded
     end
@@ -13,16 +16,16 @@ describe Teacher do
       test.grade test
       expect(test).to be_graded
       expect(test.graded_count).to eq(1)    
-  end
+    end
 
      it "should know when it's finished grading papers" do
        expect(test).not_to be_all_graded
-       20.times { test.grade(Teacher.new) }
+       tests_graded
        expect(test).to be_all_graded
      end 
 
      it "should not be able to grade any papers when done" do
-       20.times { test.grade(Teacher.new) }
-        expect(lambda{ test.grade(test)} ).to raise_error(RuntimeError, 'No more tests to grade')
+        tests_graded
+        expect{ test.grade(test)}.to raise_error(RuntimeError, 'No more tests to grade')
      end
 end
